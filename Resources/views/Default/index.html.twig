@@ -1,1 +1,46 @@
-Hello {{ name }}!
+    		{% extends "LbRssrBundle::layout.html.twig" %}
+    		
+    		{% block container %}
+	    		<div id="items">Chargement...</div>
+	    		
+	    		<script src="{{ asset('bundles/lbrssr/js/jquery.js') }}"></script>
+	    		<script src="{{ asset('bundles/lbrssr/js/modal.js') }}"></script>
+	    		<script src="{{ asset('bundles/lbrssr/js/mosaic.1.0.1.min.js') }}"></script>
+	    		
+	    		<script type="text/javascript">
+
+	    			$(document).ready(loadItems());
+	    		
+					function loadItems()
+					{
+						$.ajax({
+							url: "{{ path('LbRssrBundle_items') }}",
+							success: function(data){
+	
+								var items = eval(data);
+
+								items_content = "";
+										
+								for( item in items){
+
+				    				items_content += "<div class='article'>";
+				    				items_content += "<a href='"+items[item].itemUrl+"' target='_blank' class='mosaic-overlay'>";
+				    				items_content += "<div class='image'><img src='"+items[item].itemSrc+"'/></div>";
+				    				items_content += "<div class='details'>";
+				    				items_content += "<h4>"+items[item].itemTitle+" | "+items[item].itemDate+"</h4>";
+				    				items_content += "<p>"+items[item].itemContent+"</p>";
+				    				items_content += "</div>";
+				    				items_content += "</a>";
+				    				items_content += "</div>";
+				    		
+								}
+	
+								$('#items').html(items_content);
+
+							}
+						});
+					}
+					
+	    		</script>
+	    		
+    		{% endblock %}

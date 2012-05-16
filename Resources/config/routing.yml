@@ -1,3 +1,16 @@
 LbRssrBundle_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: LbRssrBundle:Default:index }
+    pattern:  /home
+    defaults: { _controller: "LbRssrBundle:Default:index" }
+    
+LbRssrBundle_items:
+    pattern:  /items.{_format}
+    defaults: { _controller: LbRssrBundle:Default:items, _format: json }
+    requirements: { _format: (xml|json), _method: GET }
+
+LbRssrBundle_provide:
+    pattern:  /provide
+    defaults: { _controller: LbRssrBundle:Default:provide }
+    
+LbRssrBundle_admin:
+    resource: "routing/source.yml"
+    prefix:  /admin
