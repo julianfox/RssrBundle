@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+    	<title>Rssr</title>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<meta name="description" content="">
+    	<meta name="author" content="">
+    	
+    	<link href="{{ asset('bundles/lbrssr/css/base.css') }}" rel="stylesheet">
+    	<link href="{{ asset('bundles/lbrssr/css/main.css') }}" rel="stylesheet">
+    	<link href="{{ asset('bundles/lbrssr/css/mosaic.css') }}" rel="stylesheet">
+    	
+    	<style type="text/css">
+      		body {
+        		padding-top: 60px;
+        		padding-bottom: 40px;
+      		}
+      		.sidebar-nav {
+        		padding: 9px 0;
+      		}
+    	</style>
+    	
+    	<link href="{{ asset('bundles/lbrssr/css/responsive.css') }}" rel="stylesheet">
+    	
+	    <!--[if lt IE 9]>
+	      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
+
+	    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+	    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+	    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+	    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+	    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+	</head>
+	
+	<body>
+		<div id="about" class="modal hide fade">
+	    	<div class="modal-header">
+	        	<button class="close" data-dismiss="modal">&times;</button>
+	            <h3>About Rssr</h3>
+	        </div>
+	        <div class="modal-body">
+	        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>         
+	        </div>
+    	</div>
+	    <div id="contact" class="modal hide fade">
+	    	<div class="modal-header">
+	        	<button class="close" data-dismiss="modal">&times;</button>
+	            <h3>Contact</h3>
+	        </div>
+	        <div class="modal-body">
+	        	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>         
+	        </div>
+	    </div>
+  	
+    	<div class="navbar navbar-fixed-top">
+      		<div class="navbar-inner">
+        		<div class="container-fluid">
+          			<a class="brand" href="{{ path('LbRssrBundle_homepage') }}">Rssr</a>
+          			<div class="nav-collapse">
+            			<ul class="nav">
+            				<li><a onClick="$('#about').modal()" href="#">About</a></li>
+            				<li class="divider-vertical"></li>
+            				<li><a onClick="$('#contact').modal()" href="#">Contact</a></li>
+            				<li class="divider-vertical"></li>
+            				<li><a href="{{ path('source') }}">Admin</a></li>
+            			</ul>
+          			</div>
+          			<div class="nav-collapse pull-right">
+          	 			<ul class="nav">
+          					<button onClick="loadItems();" class="btn">
+          						<i class="icon-refresh"></i>
+          						Refresh
+          					</button>
+          				</ul>
+          			</div>
+        		</div>
+      		</div>
+    	</div>
+ 
+    	<div class="container-fluid">
+    	
+    		{% block container %}
+        	{% endblock %}
+    	
+    	</div>
+    
+    </body>
+</html>

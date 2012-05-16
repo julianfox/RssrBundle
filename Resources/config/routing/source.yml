@@ -1,0 +1,30 @@
+source:
+    pattern:  /
+    defaults: { _controller: "LbRssrBundle:Source:index" }
+
+source_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "LbRssrBundle:Source:show" }
+
+source_new:
+    pattern:  /new
+    defaults: { _controller: "LbRssrBundle:Source:new" }
+
+source_create:
+    pattern:  /create
+    defaults: { _controller: "LbRssrBundle:Source:create" }
+    requirements: { _method: post }
+
+source_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "LbRssrBundle:Source:edit" }
+
+source_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "LbRssrBundle:Source:update" }
+    requirements: { _method: post }
+
+source_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "LbRssrBundle:Source:delete" }
+    requirements: { _method: post }
